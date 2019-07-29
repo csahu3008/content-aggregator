@@ -1,0 +1,42 @@
+ {% extends "base.html" %}
+{% block title %}
+list News
+{% endblock title %}
+{% block content %}
+{% load loads %}
+{% for m in list %}
+
+         {% if forloop.counter|divisibleby:'3' %}
+          
+            <div class="template2">
+               <div class='dateandheadline'> <div class='d1'><span id='date'>Date:{{m.date_published}}</span><span id='category'>{% for k in m.categories.all %}
+                {{k.title|capfirst}}
+                {% endfor %}</span></div>
+               <p id='p' style="Merriweather', serif;">{{m.headline|capfirst}}</p></div>
+                    <div ><img class="img" src="{{m.picture.url}}"  alt=""></div>
+                    <div class="content" style='font-size:18px;margin-right:20px;margin-left:20px;text-align:center;font-family: Mukta, sans-serif;'>{{m.description|lower|capfirst|linebreaks}}<br>for detailed information visit : {{m.url|urlizetrunc:"20"}}</div>
+                    
+        </div> 
+       {% elif forloop.counter|divisibleby:'2'  %}
+           
+                <div class='news2' %}">
+                        <div class='d1'><span id='date'>Date:{{m.date_published}}</span><span id='category'>{% for k in m.categories.all %}
+                {{k.title|capfirst}}
+                {% endfor %}</span></div>
+                        <headline style="font-family:'Merriweather', serif;">{{m.headline|capfirst}}</headline>
+                        <p>for detailed information visit : {{m.url|urlizetrunc:"20"}}</p>
+                </div> 
+       {% elif forloop.counter|divisibleby:'1'  %}
+
+                <div class="news1">
+                      <div class='d1'><span id='date'>Date:{{m.date_published}}</span><span id='category'>{% for k in m.categories.all %}
+                {{k.title|capfirst}}
+                {% endfor %}</span></div>
+                        <headline style="font-family:'Merriweather', serif;">{{m.headline|capfirst}}</headline>
+                        <p>for detailed information visit : {{m.url|urlizetrunc:"20"}}</p>
+                </div>
+               
+        {% endif %}
+            
+        {% endfor %}
+{% endblock content %} 

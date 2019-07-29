@@ -1,0 +1,31 @@
+ {% extends "list.html" %}
+{% block style %}
+{% load static %}
+.weather{
+  width:80%;
+  font-family:verdana;
+  padding:5%;
+  height:150px;
+  background:url('{% static 'images\bg4.jpeg' %}');
+  margin:auto;
+  border:2px solid white;
+
+  margin-top:20px;
+}
+.weather td{
+    font-size:15px;
+    color:white;
+}
+{% endblock style %}
+{% block weather %} 
+<div class='weather'>
+<table cellpadding=3 style='font-size:40px;'>
+   <tr><td colspan=2  style='text-align:center;'>{{data.place|capfirst}}</td></li>
+   <tr><td>Current Temperature</td><td>{{data.current_temp}}</td></tr>
+   <tr><td>Max Temperature</td><td>{{data.max_temp}}</td></tr>
+   <tr><td>Min Temperature</td><td>{{data.min_temp}}</td></tr>
+   <tr><td>Humidity</td><td>{{data.humidity}}</td></tr>
+   
+   </table>
+ 
+ {% endblock weather %}

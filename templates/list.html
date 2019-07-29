@@ -1,0 +1,72 @@
+ {% extends "base.html" %}
+{% block title %}
+list News
+{% endblock title %}
+{% block content %}
+{% load loads %}
+{% for m in list %}
+
+         {% if forloop.counter|divisibleby:'3' %}
+          
+            <div class="template2">
+               <div class='dateandheadline'> <div class='d1'><span id='date'>Date:{{m.date_published}}</span><span id='category'>{% for k in m.categories.all %}
+                {{k.title|capfirst}}
+                {% endfor %}</span></div>
+               <p id='p' style="Merriweather', serif;"><a id='headline-a' href="{% url 'detail' m.id %}">{{m.headline|capfirst}}</a></p></div>
+                    <div ><img class="img" src="{{m.picture.url}}" style='height:150px;width:250px;' alt=""></div>
+                    <div class="content" style='font-size:18px;margin-right:20px;margin-left:20px;text-align:center;font-family: Mukta, sans-serif;'>{{m.description|lower|capfirst|linebreaks}}<br>for detailed information visit : {{m.url|urlizetrunc:"20"}}</div>
+   
+        </div> 
+       {% elif forloop.counter|divisibleby:'2'  %}
+           
+                <div class='news2' %}">
+                        <div class='d1'><span id='date'>Date:{{m.date_published}}</span><span id='category'>{% for k in m.categories.all %}
+                {{k.title|capfirst}}
+                {% endfor %}</span></div>
+                        <headline style="font-family:'Merriweather', serif;"><a id='headline-a' href="{% url 'detail' m.id %}">{{m.headline|capfirst}}</a></headline>
+                        <p>for detailed information visit : {{m.url|urlizetrunc:"20"}}</p>
+                </div> 
+       {% elif forloop.counter|divisibleby:'1'  %}
+
+                <div class="news1">
+                      <div class='d1'><span id='date'>Date:{{m.date_published}}</span><span id='category'>{% for k in m.categories.all %}
+                {{k.title|capfirst}}
+                {% endfor %}</span></div>
+                        <headline style="font-family:'Merriweather', serif;"><a id='headline-a' href="{% url 'detail' m.id %}">{{m.headline|capfirst}}</a></headline>
+                        <p>for detailed information visit : {{m.url|urlizetrunc:"20"}}</p>
+                </div>
+               
+        {% endif %}
+            
+        {% endfor %}
+{% endblock content %} 
+{% block style %}
+{% load static %}
+.weather{
+  width:80%;
+  font-family:verdana;
+  padding:5%;
+  height:150px;
+  background:url('{% static 'images\bg4.jpeg' %}');
+  margin:auto;
+  border:2px solid white;
+
+  margin-top:20px;
+}
+.weather td{
+    font-size:15px;
+    color:white;
+}
+{% endblock style %}
+{% block weather %} 
+<div class='weather'>
+<table cellpadding=3 style='font-size:40px;'>
+   <tr><td colspan=2  style='text-align:center;'>{{data.place|capfirst}}</td></li>
+   <tr><td>Current Temperature</td><td>{{data.current_temp}}</td></tr>
+   <tr><td>Max Temperature</td><td>{{data.max_temp}}</td></tr>
+   <tr><td>Min Temperature</td><td>{{data.min_temp}}</td></tr>
+   <tr><td>Humidity</td><td>{{data.humidity}}</td></tr>
+   
+   </table>
+ 
+ {% endblock weather %}

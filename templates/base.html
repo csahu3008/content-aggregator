@@ -1,0 +1,472 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    <script src='{% static 'jquery-3.4.1.min.js' %}'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Mukta|Playfair+Display|Rubik&display=swap" rel="stylesheet">
+    <title>Base.html</title>
+    <script>
+    
+    {% block ajax_script %}
+     {% endblock ajax_script %}
+    </script>
+    <style>
+    *{margin:0px;
+   }
+   #headline-a{
+       text-decoration:none;
+       color:green;
+   }
+   body{
+    background: url({% static 'images/fla.svg' %});
+    background-position: center;
+    background-size:cover;
+   }
+    .headline-menu{
+        width:100%;
+        height:200px;
+       
+        color:white;
+    }
+    .headline{
+        width:40%;
+        height:200px;
+        background: white;
+        margin: auto;
+        float:left;
+    }
+    .mynews{
+        width:60%;
+        margin:auto;
+        margin-top:70px;
+      
+        color:red;
+        font-family:Mukta ,serif;
+        font-weight: 200;
+        font-size:30px;
+        font-stretch: extra-condensed;
+    }
+    .menu{
+        width:60%;
+        height:200px;
+        color-adjust: initial;
+        background: tomato;
+        margin:auto;
+        float: left;
+    }
+    .table{
+        margin-top:80px;
+    }
+   #pro{
+        color:white;
+        font-size:35px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-variant: unset;
+        letter-spacing: 3px;
+        font-style: oblique;
+        font-variation-settings: inherit;
+    }
+    td{
+        color:white;
+        font-size: 20px;
+        letter-spacing: 2px;
+        padding-left:10px;
+    }
+
+    #search{
+        width:200px;
+        font-size:20px;
+        color:black;
+        outline:0px;
+        padding:5px;
+        border:0px;
+        border-radius:10px;
+        margin-left:20px;
+        margin-right:10px;
+        box-shadow:3px  2px 5px black;
+        font-family:Merriweather;
+        font-variant: small-caps;
+        height:40px;
+
+    }
+    .line{
+        margin-top:3px;
+        width:100%;
+        height:50px;
+        background:black;
+    }
+    .line h2{
+        padding-top:10px;
+    }
+    .main-col{
+        width:90%;
+        min-height:350px;
+        margin:auto;
+        }
+    .left{
+     width:70%;
+     float:left;
+     min-height:350px;
+     background:rgba(255,255,255, 1);
+
+    }
+    .news1{
+        width:39.5%;
+        float:left;
+        height:100px important;
+        color:black;
+        border-top:1px solid black;
+       padding:5%;
+      
+    }
+   
+    .news2{
+         width:40%;
+         border-top:1px solid black;
+         color:black;
+        float:left;       
+        height:100px;
+        padding:5%;
+       
+    }
+    .template2{
+        width:99.5%;
+        border-top:1px solid black;
+        margin-top:220px;
+         height:300px;
+        margin-bottom:20px;
+    }
+    #helo{
+         height:30px;
+         width:50px;
+         color:white;
+         border:2px solid white;
+         background:red;
+         padding:10px;
+         text-decoration:none;
+    }
+    #p{
+        color:green;
+        font-size: 20px;
+    }
+    .template2:hover{       
+        transition-delay: 100ms;
+        color:darkblue;
+    }
+    .news2:hover{    
+        color:darkblue;       
+        transition-delay: 100ms;
+        
+    }
+    .news1:hover{
+         color:darkblue;         
+         transition-delay: 100ms;
+         background:transparent;
+    }
+  .dateandheadline{
+      width:90%;
+      margin:auto;
+      padding-top:20px;
+      padding-bottom:20px;
+
+  }
+   .img{
+         height:auto;
+         float:left; 
+         margin-left:5%;
+         padding-right:20px;
+         border-radius:5px;
+         width:250px;           
+     }
+    
+    .d1{
+        width:100%;
+        color:darkorange;
+        height:20px;
+        
+    }
+    
+    .right{
+        width:30%;
+        float:left;
+           background:linear-gradient(#1DA1F2,#1B95E0);
+           box-shadow:12px 10px #F8F8F8;
+           min-height:400px;
+    }
+    
+    #category{
+        float:right;
+        margin-right: 20px;
+        
+    }
+     .date{
+         background:red;
+         height:30px;
+         margin-top:5px;
+         width:100%;
+         color:white;
+         font-family: cursive;
+         font-variant: unset;
+         font-size:20px;
+
+     }
+     #title-url{
+         text-decoration:none;
+         color:white;
+     }
+     #date{
+         float:left;
+         margin-left: 5%;
+     }
+     #time{
+         float:right;
+         margin-right: 5%;
+     }
+     #logo{
+         color:red;
+         text-decoration:none;
+     }
+     #btn1{
+         background:transparent;
+         color:white;
+         font-family:Mukta,serif;
+         font-size:16px;
+         border:1.5px solid black;
+         border-radius:10px;
+         width:50px;
+         height:40px;
+         outline:0px;
+         position:fixed;
+         top:300px;
+         left:0%;
+     }
+     #btn1:hover{
+         width:100px;
+         box-shadow:2px 4px 10px black;
+         background:greenyellow;
+     }
+     #btnw{
+          background:transparent;
+         color:white;
+         font-family:Mukta,serif;
+         font-size:16px;
+         border:1.5px solid white;
+         box-shadow:2px 3px 5px black;
+         border-radius:10px;
+         width:100px;
+         height:40px;
+         outline:0px;
+     }
+      #btn2{
+         background:transparent;
+         color:white;
+         font-family:Mukta,serif;
+         font-size:16px;
+         border:1.5px solid black;
+         border-radius:10px;
+         width:60px;
+         height:40px;
+         outline:0px;
+         position:fixed;
+         top:300px;
+         right:0%;
+       
+     }
+     #btn2:hover{
+         width:100px;
+         box-shadow:2px 4px 10px black;
+         background:greenyellow;
+     }
+    #submit{
+         border:0px;
+          outline:0px;
+    }
+    {% block style %}
+    
+    {% endblock style %}
+    </style>
+    <style>
+.form{
+  width:70%;
+  margin:auto;
+  color:black;
+
+ }
+ .form label{
+   margin-right:30px;
+   padding-right:40px;
+ }
+ 
+ .f{
+  width:200px;
+  height:30px;
+  font-size:20px;
+  margin-top:10px;
+ outline:10px;
+
+}
+.n{
+ width:200px;
+  height:60px;
+  margin-top:10px;
+  font-size:20px;
+  outline:10px;
+}
+.m{
+  width:200px;
+  margin-top:10px;
+  height:30px;
+}
+
+</style>
+</head>
+<body>
+    <div class="headline-menu">
+        <div class="headline"><div class="mynews"><h2><a id='logo' href="{% url 'list' %}">mynewspicker<a></h2></div></div>
+        <div class="menu">
+            <div class="table">
+                <table>
+                    <tr><td  colspan=8 align="center" ><form method='GET' action='{% url 'search' %}'><span id='pro'>Search topics</span><input type='text' id='search' name='q'><button style='background:transparent;' id='submit' type='submit'><img width=40px color=red style="margin-left: 20px" onclick="openform()" id='btn' height=40px src="{% static 'images/m.svg' %}"></button></form></td></tr>
+                    <tr><td><a href="{% url 'category' 'general' %}" id='title-url'> General</a></td> <td><a href="{% url 'category'  'science' %} "id='title-url'>Science</td><td><a href="{% url 'category'  'sports' %}" id='title-url'>Sports</a></td><td><a href="{% url  'category' 'health' %}" id='title-url'>Health</a></td><td><a href="{% url  'category' 'technology' %}" id='title-url'>Technology</a></td><td><a href="{% url  'category' 'entertainment' %}" id='title-url'>Entertainment</a></td><td><a href="{% url 'category'  'business' %}" id='title-url'>Buisness</a></td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="line">
+    <h2 style='text-align: center;color:white;font-family:cursive;'>News that you want to explore {% if request.user.is_authenticated %}
+    <span style='float:left;color:yellow;'>hey {{user.name}}</span><a href="{% url 'logout' %}" style='float:right;text-decoration:none;color:yellow;'>logout</a>
+    {% else %}
+    <a href="{% url 'login' %}" style='float:right;text-decoration:none;color:white;'>login</a>
+    {% endif %} </h2>
+    </div>
+    <div class="main-col">
+       <div class="date"><span id='date'></span><span id='time'></span></div>
+       <div class="left">
+             {% block content %}
+             
+             {% endblock content %}      
+       </div>
+       <div class="right" >
+       <div class="update" style='height:50px;width:100%;'>
+        
+       </div>
+       <a data_url='{% url 'updates' %}' id='helo' class='update' style="background:red;margin-left:30%;"  >update contents</a>
+          <form style='margin-top:40px;' method='GET' action="{% url 'weather' %}">
+          <input type=text id='search' placeholder='place' name='place'><input type='submit' id='btnw' value='get result'>
+          </form>
+         {% if data %}
+         
+         
+         {% block weather %}
+        
+         {% endblock weather %}
+    
+        {% else %}
+         {% endif %}
+        </div>
+          
+    
+      
+    </div>
+  
+    <input type='button' id='btn1'  value='Back' onclick='goBack()'>
+    <input type='button' id='btn2'  value='Forward' onclick='goForward()'>
+    <script src=" http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.
+cookie.min.js "></script>
+   
+   <div class='fixed' style='position:fixed;height:40px;width:100%;background-color:whitesmoke;border-bottom:2px solid grey;top:0px;'>
+   <h3 style='color:black;float:right;margin-top:20px;margin-right:20px;'>Powered by Newsapi</h3>
+   </div>
+
+    <script>
+    var csrftoken = $.cookie('csrftoken');
+function csrfSafeMethod(method) {
+// these HTTP methods do not require CSRF protection
+return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+   beforeSend: function(xhr, settings) {
+   if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+     xhr.setRequestHeader("X-CSRFToken", csrftoken);
+}
+}
+});
+  
+    $(document).ready(function(){
+     
+        $('.update').click(function(e){
+            $.ajax({
+                url:$(this).attr('data_url'),
+                type:'GET',
+                success:function(data)
+                { alert(data.sid);},
+                failure:function(data){
+                    alert('an error wass occured');
+                }
+            });
+        })
+
+        $('.like').click(function(e){
+            $.ajax({
+                url:$(this).attr('ahref'),
+                type:'POST',
+                success:function(data)
+                {   $('#l').text(data.total) ;
+                   $('#d').text(data.dtotal);
+                 }
+        
+            });
+        })
+        $('.dislike').click(function(e){
+            $.ajax({
+                url:$(this).attr('ahref'),
+                type:'POST',
+                success:function(data)
+                {   $('#l').text(data.total) ;
+                   $('#d').text(data.dtotal);
+                 }
+        
+            });
+        })
+    });
+
+
+
+
+        var i=0;
+      var k=setInterval(function(){
+          var x =new Date();
+          document.getElementById('date').innerHTML='Date&nbsp;&nbsp;'+x.getDate()+'/'+(x.getMonth()+1) +' /'+x.getFullYear();
+        },1000  )
+
+    var l=setInterval(function(){
+        var n=new Date();
+        document.getElementById('time').innerHTML='Current Time&nbsp;'+n.getHours()+'&nbsp;:&nbsp;'+n.getMinutes()+'&nbsp;:&nbsp;'+n.getSeconds();
+    },1000)
+    var openform=function(){
+        if(i==0){
+        // var inp=document.createElement('input');
+        // inp.setAttribute('type','text');
+        // inp.setAttribute('id','search');
+        // document.getElementById('pro').append(inp);
+        // document.getElementById('search').style.display='inline';
+        i=1;
+        }   
+        
+    }
+    var goBack=function(){
+       window.history.back()
+    }
+    var goForward=function(){
+       window.history.forward()
+    }
+    {% block ajaxcode %}
+    
+    {% endblock ajaxcode %}
+    </script>
+</body>
+</html>

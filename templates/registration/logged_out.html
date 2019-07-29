@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{% url 'logout' %} " style='margin-left:20px;color:orange;font-size:20px;text-decoration:none;'>logged out successfully</a>
+<a href="{% url 'login' %}" style='margin-left:20px;color:orange;font-size:20px;text-decoration:none;'>Login again</a>
+{% endblock content %}

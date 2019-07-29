@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+{% if form.errors %}
+   {{errors}}
+{% else %}
+{% endif %}
+
+<form method='POST' >
+{{form.as_p}}
+{% csrf_token %}
+<input type='submit' style='width:100px;height:30px;border:0px;justify-content:center;;outline:0px;background:aqua;color:red;box-shadow:2px 3px 3px black;'  value='login'>
+</form>
+<a style='margin-left:20%' href='{% url "signup" %}' id='helo'>Signup</a>
+{% endblock content %} 

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}
+update News
+{% endblock title %}
+{% block content %}
+<form method='POST'>
+{% csrf_token %}
+{{form.as_p}}
+<input type='submit' name='' value='ADD'>
+</form>
+{% endblock content %}

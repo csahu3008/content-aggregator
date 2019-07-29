@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}
+add News
+{% endblock title %}
+{% block content %}
+<style>
+.form{
+  width:70%;
+  margin:auto;
+  color:black;
+
+ }
+ .form label{
+   margin-right:30px;
+   padding-right:40px;
+ }
+ 
+ .f{
+  width:200px;
+  height:30px;
+  font-size:20px;
+  margin-top:10px;
+ outline:10px;
+
+}
+.n{
+ width:200px;
+  height:60px;
+  margin-top:10px;
+  font-size:20px;
+  outline:10px;
+}
+.m{
+  width:200px;
+  margin-top:10px;
+  height:30px;
+}
+
+</style>
+<form method='POST' class='form' id='form' submit_link='{% url "add" %}' enctype='multipart/form-data'>
+{% csrf_token %}
+{{form.as_p}}
+<input type='submit' class='formbtn' style='width:100px;height:30px;border:0px;outline:0px;background:green;box-shadow:2px 3px 3px black;'  name='publish' value='ADD'>
+</form>
+{% endblock content %}
+{% block ajaxcode %}
+var csrftoken=$("[name=csrfmiddlewaretoken]").val();
+
+$('.form').submit(function(event) {
+  event.preventDefault();
+  var form=document.querySelector('.form');
+  var data = new FormData(form);  
+  $.ajax({
+      url: $(this).attr('submit_link'),
+      type: $(this).attr('method'),
+      data: data,
+      cache: false,
+      processData: false,
+      contentType: false,
+      success: function(data) {
+          alert('success');
+      }
+  });
+  return false;
+  });
+{% endblock ajaxcode %}
